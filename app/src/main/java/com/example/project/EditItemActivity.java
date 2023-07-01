@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,28 +13,29 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class EditItemActivity extends AppCompatActivity {
 
-    private TextInputEditText editText;
-    private Button saveButton;
+    private String currentItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 
-        editText = findViewById(R.id.editText);
-        saveButton = findViewById(R.id.saveButton);
+        // Retrieve the item from the intent
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            currentItem = extras.getString("item");
+            Toast.makeText(this, "Editing item: " + currentItem, Toast.LENGTH_SHORT).show();
+        }
 
-        String item = getIntent().getStringExtra("item");
-        editText.setText(item);
-
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        // Button to navigate to details page
+        Button detailsButton = findViewById(R.id.detailsButton);
+        detailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String updatedItem = editText.getText().toString();
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("updatedItem", updatedItem);
-                setResult(RESULT_OK, resultIntent);
-                finish();
+                Intent intent = new Intent(EditItemActivity.this, ItemDetailsActivity.class);
+                intent.putExtra("item", currentItem);
+                startActivity(intent);
+                finish(); // Finish the current activity to prevent going back to it
             }
         });
     }

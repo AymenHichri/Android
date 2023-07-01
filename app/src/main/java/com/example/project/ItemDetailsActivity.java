@@ -16,7 +16,15 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         itemDetailsTextView = findViewById(R.id.itemDetailsTextView);
 
-        String item = getIntent().getStringExtra("item");
-        itemDetailsTextView.setText(item);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String item = extras.getString("item");
+            displayItemDetails(item);
+        }
+    }
+
+    private void displayItemDetails(String item) {
+        String details = "There are details regarding item: " + item + "\n"+"This item is know dish and is usually associated with mediterranean areas";
+        itemDetailsTextView.setText(details);
     }
 }
