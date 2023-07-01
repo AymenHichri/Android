@@ -8,9 +8,11 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class EditItemActivity extends AppCompatActivity {
 
-    private EditText editText;
+    private TextInputEditText editText;
     private Button saveButton;
 
     @Override
