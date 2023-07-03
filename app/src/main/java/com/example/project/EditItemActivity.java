@@ -30,6 +30,9 @@ public class EditItemActivity extends AppCompatActivity {
         // Button to navigate to details page
         Button detailsButton = findViewById(R.id.detailsButton);
         detailsButton.setOnClickListener(new View.OnClickListener() {
+            //Ce bloc de code définit un écouteur d'événement onClick pour un bouton ou une vue. Lorsque le bouton ou la vue est cliqué, il crée un objet Intent pour démarrer une nouvelle activité appelée ItemDetailsActivity,
+            //en transmettant l'élément actuel en tant que données supplémentaires. Il démarre alors la nouvelle activité et termine l'activité en cours,
+            // empêchant l'utilisateur d'y revenir.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditItemActivity.this, ItemDetailsActivity.class);

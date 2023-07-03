@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ItemDetailsActivity extends AppCompatActivity {
 
     private TextView itemDetailsTextView;
-
+    //Ce bloc de code configure l'ItemDetailsActivity en affectant la mise en page appropriée,
+    // en récupérant les données d'élément transmises par l'activité précédente et en affichant les détails de l'élément dans une vue texte.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

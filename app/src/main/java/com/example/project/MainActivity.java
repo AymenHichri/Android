@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private String[] items = {"Pizza", "Pasta", "Salad", "Chocolate", "Candy"};
 
+    //Ce bloc de code configure l'activité principale en affectant la mise en page appropriée,
+    // en initialisant un adaptateur personnalisé pour une vue de liste et en définissant un écouteur de clic d'élément.
+
+    //Lorsqu'un élément de la vue de liste est cliqué, il récupère l'élément correspondant, crée un objet Intent pour démarrer une nouvelle activité appelée ItemDetailsActivity,
+    // en transmettant l'élément sélectionné en tant que donnée supplémentaire, et démarre la nouvelle activité.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         public long getItemId(int position) {
             return position;
         }
-
+       //Ce bloc de code définit la méthode getView pour un adaptateur personnalisé utilisé dans une vue de liste.
+       // Il gonfle la disposition de chaque ligne, définit le texte d'un élément et définit un écouteur onClick pour un bouton d'édition dans chaque ligne.
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
